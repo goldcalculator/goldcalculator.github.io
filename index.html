@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Gold Calculator - Calculate 24K, 22K & 18K Gold Price Today</title>
+    <meta name="title" content="Gold Calculator - Calculate 24K, 22K & 18K Gold Price Today">
+    <meta name="description" content="Use our free Gold Calculator to find the exact value of your gold based on current market rates. Supports 24K, 22K, 18K, and 14K purity for accurate valuation.">
+    <meta name="keywords" content="gold calculator, gold price today, 22k gold value, 24k gold price, jewelry value calculator, gold purity checker, gold weight calculator">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:title" content="Gold Price & Purity Calculator">
+    <meta property="og:description" content="Calculate the real value of your gold jewelry instantly. Simple, fast, and accurate.">
+    <meta property="og:image" content="https://yourwebsite.com/gold-preview.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2950/2950031.png">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2950/2950031.png">
+
+    <style>
+        :root {
+            --gold-primary: #d4af37;
+            --gold-dark: #b8860b;
+            --bg-color: #f8f9fa;
+            --text-main: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Calculator Styles */
+        .calculator-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        h1, h2, h3 {
+            color: var(--gold-dark);
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--gold-primary);
+            outline: none;
+        }
+
+        .result-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #fffdf2;
+            border: 2px dashed var(--gold-primary);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #totalPrice {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold-dark);
+            display: block;
+        }
+
+        /* Content Styles */
+        .content-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .content-section h2 {
+            text-align: left;
+            border-bottom: 2px solid var(--gold-primary);
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: #fdfdfd;
+            padding: 15px;
+            border-left: 4px solid var(--gold-primary);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+            body { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="calculator-card">
+        <h1>Gold Price Calculator</h1>
+        
+        <div class="input-group">
+            <label>Current Price (per gram)</label>
+            <input type="number" id="marketPrice" value="7500" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label>Weight (Grams)</label>
+            <input type="number" id="weight" placeholder="e.g. 10.50" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label>Purity (Karat)</label>
+            <select id="karat">
+                <option value="1">24K (99.9% Pure)</option>
+                <option value="0.916">22K (91.6% Pure)</option>
+                <option value="0.75">18K (75.0% Pure)</option>
+                <option value="0.583">14K (58.3% Pure)</option>
+            </select>
+        </div>
+
+        <div class="result-box">
+            <span>Total Estimated Value</span>
+            <span id="totalPrice">0.00</span>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>Gold Valuation Guide</h2>
+        <p>Calculating the value of gold involves three key factors: Weight, Purity (Karat), and the current Market Price.</p>
+
+        <h3>1. Understanding Purity</h3>
+        <div class="grid">
+            <div class="info-card"><strong>24K (99.9%):</strong> Investment-grade pure gold.</div>
+            <div class="info-card"><strong>22K (91.6%):</strong> Standard for Indian jewelry.</div>
+            <div class="info-card"><strong>18K (75.0%):</strong> Used for diamond jewelry.</div>
+            <div class="info-card"><strong>14K (58.3%):</strong> Durable and affordable everyday wear.</div>
+        </div>
+
+        <h3>2. Calculation Formula</h3>
+        <p>The price is calculated using the following logical formula:</p>
+        <div style="background: #f4f4f4; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold;">
+            Value = (Weight × Market Price) × (Karat / 24)
+        </div>
+
+        <h3>3. Fees and Taxes</h3>
+        <ul>
+            <li><strong>Making Charges:</strong> Usually 5% to 20% depending on the design.</li>
+            <li><strong>GST/Taxes:</strong> Don't forget to add local sales tax (like 3% GST in India).</li>
+            <li><strong>Hallmarking:</strong> Always look for the BIS hallmark for authenticity.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    const weightInput = document.getElementById('weight');
+    const marketPriceInput = document.getElementById('marketPrice');
+    const karatInput = document.getElementById('karat');
+    const display = document.getElementById('totalPrice');
+
+    function calculate() {
+        const weight = parseFloat(weightInput.value) || 0;
+        const marketPrice = parseFloat(marketPriceInput.value) || 0;
+        const purity = parseFloat(karatInput.value);
+
+        const total = weight * marketPrice * purity;
+        
+        display.innerText = total.toLocaleString(undefined, { 
+            minimumFractionDigits: 2, 
+            maximumFractionDigits: 2 
+        });
+    }
+
+    [weightInput, marketPriceInput, karatInput].forEach(input => {
+        input.addEventListener('input', calculate);
+    });
+</script>
+
+</body>
+</html>
